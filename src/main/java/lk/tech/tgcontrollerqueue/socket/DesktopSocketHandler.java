@@ -1,5 +1,9 @@
 package lk.tech.tgcontrollerqueue.socket;
 
+import lk.tech.tgcontrollerqueue.HttpRequests;
+import lk.tech.tgcontrollerqueue.dto.OrderData;
+import lk.tech.tgcontrollerqueue.senders.SocketMessageSender;
+import lk.tech.tgcontrollerqueue.utils.BinaryUtils;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;
@@ -10,15 +14,17 @@ import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 import lk.tech.tgcontrollerqueue.socket.SessionManager;
 
 import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 @Component
 public class DesktopSocketHandler extends BinaryWebSocketHandler {
 
+    private final HttpRequests httpRequests;
+    private final BinaryUtils binaryUtils;
     private final SessionManager sessionManager;
 
-    public DesktopSocketHandler(SessionManager sessionManager) {
+    public DesktopSocketHandler(HttpRequests httpRequests, BinaryUtils binaryUtils, SessionManager sessionManager) {
+        this.httpRequests = httpRequests;
+        this.binaryUtils = binaryUtils;
         this.sessionManager = sessionManager;
     }
 
@@ -65,20 +71,20 @@ public class DesktopSocketHandler extends BinaryWebSocketHandler {
         System.out.println("Binary message from " + key + " (" + bytes.length + " bytes)");
 
         // Правильный префикс
-        byte[] prefix = "/screenshot:".getBytes(StandardCharsets.UTF_8);
-
-        // Проверяем префикс
-        if (hasPrefix(bytes, prefix)) {
-
-            // Вырезаем PNG как raw bytes
-            byte[] pngBytes = removePrefix(bytes, prefix.length);
-
-            System.out.println("Detected PNG image from client " + key);
-
-            // отправляем PNG в Telegram
-//            messageSender.sendRawPictureToTG(key, pngBytes, "Ваш скриншот:");
-            return;
-        }
+//        byte[] prefix = "/screenshot:".getBytes(StandardCharsets.UTF_8);
+//
+//        // Проверяем префикс
+//        if (hasPrefix(bytes, prefix)) {
+//
+//            // Вырезаем PNG как raw bytes
+//            byte[] pngBytes = removePrefix(bytes, prefix.length);
+//
+//            System.out.println("Detected PNG image from client " + key);
+//
+//            // отправляем PNG в Telegram
+////            messageSender.sendRawPictureToTG(key, pngBytes, "Ваш скриншот:");
+//            return;
+//        }
 
         System.out.println("Unknown binary message type from " + key);
     }
@@ -105,17 +111,17 @@ public class DesktopSocketHandler extends BinaryWebSocketHandler {
         return null;
     }
 
-    private boolean hasPrefix(byte[] src, byte[] prefix) {
-        if (src.length < prefix.length) return false;
-        for (int i = 0; i < prefix.length; i++) {
-            if (src[i] != prefix[i]) return false;
-        }
-        return true;
+
+    public void handle(String key, String command, String data) {
+        httpRequests.sendText(new OrderData(command, data), key, command);
+        System.out.println("Message from " + key + ": " + command);
     }
 
-    private byte[] removePrefix(byte[] src, int prefixSize) {
-        byte[] out = new byte[src.length - prefixSize];
-        System.arraycopy(src, prefixSize, out, 0, out.length);
-        return out;
+
+    public void handle(String key, String command, byte[] bytes) {
+//        if ("/screenshot".equals(command)){
+        httpRequests.sendImage(bytes, key, command);
+//        }
+        System.out.println("Message from " + key + ": " + command);
     }
 }
