@@ -8,18 +8,18 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
 @Configuration
-@EnableWebSocket
+//@EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    private final DesktopSocketHandler desktopSocketHandler;
+    private final SocketController socketController;
 
-    public WebSocketConfig(DesktopSocketHandler desktopSocketHandler) {
-        this.desktopSocketHandler = desktopSocketHandler;
+    public WebSocketConfig(SocketController socketController) {
+        this.socketController = socketController;
     }
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(desktopSocketHandler, "/ws")
+        registry.addHandler(socketController, "/ws")
                 .setAllowedOrigins("*");
     }
 
