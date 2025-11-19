@@ -11,9 +11,9 @@ import org.springframework.web.socket.server.standard.ServletServerContainerFact
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    private final SocketController desktopSocketHandler;
+    private final DesktopSocketHandler desktopSocketHandler;
 
-    public WebSocketConfig(SocketController desktopSocketHandler) {
+    public WebSocketConfig(DesktopSocketHandler desktopSocketHandler) {
         this.desktopSocketHandler = desktopSocketHandler;
     }
 
