@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tg-controller-queue
+    name: tg-controller-socket
 
 server:
   port: 8484

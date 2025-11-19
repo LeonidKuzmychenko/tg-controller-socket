@@ -1,6 +1,6 @@
-package lk.tech.tgcontrollerqueue.senders;
+package lk.tech.tgcontrollersocket.senders;
 
-import lk.tech.tgcontrollerqueue.socket.SessionManager;
+import lk.tech.tgcontrollersocket.socket.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;

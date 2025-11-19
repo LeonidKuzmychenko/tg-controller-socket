@@ -6,11 +6,11 @@ plugins {
 
 group = "lk.tech"
 version = "0.0.1-SNAPSHOT"
-description = "tg-controller-queue"
+description = "tg-controller-socket"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -25,7 +25,6 @@ repositories {
 }
 
 dependencies {
-//    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework:spring-webflux")
     implementation("org.springframework.boot:spring-boot-starter-websocket")
     compileOnly("org.projectlombok:lombok")

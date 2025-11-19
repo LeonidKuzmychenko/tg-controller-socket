@@ -1,9 +1,9 @@
-package lk.tech.tgcontrollerqueue.socket;
+package lk.tech.tgcontrollersocket.socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lk.tech.tgcontrollerqueue.dto.OrderData;
-import lk.tech.tgcontrollerqueue.dto.PrefixResult;
-import lk.tech.tgcontrollerqueue.utils.BinaryUtils;
+import lk.tech.tgcontrollersocket.dto.OrderData;
+import lk.tech.tgcontrollersocket.dto.PrefixResult;
+import lk.tech.tgcontrollersocket.utils.BinaryUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.socket.BinaryMessage;

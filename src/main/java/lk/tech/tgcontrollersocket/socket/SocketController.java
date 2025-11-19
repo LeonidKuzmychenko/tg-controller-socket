@@ -1,9 +1,9 @@
-package lk.tech.tgcontrollerqueue.socket;
+package lk.tech.tgcontrollersocket.socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lk.tech.tgcontrollerqueue.dto.OrderData;
-import lk.tech.tgcontrollerqueue.requests.HttpRequests;
-import lk.tech.tgcontrollerqueue.utils.BinaryUtils;
+import lk.tech.tgcontrollersocket.dto.OrderData;
+import lk.tech.tgcontrollersocket.requests.HttpRequests;
+import lk.tech.tgcontrollersocket.utils.BinaryUtils;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,1 +1,1 @@
-rootProject.name = "tg-controller-queue"
+rootProject.name = "tg-controller-socket"

@@ -1,6 +1,6 @@
-package lk.tech.tgcontrollerqueue.utils;
+package lk.tech.tgcontrollersocket.utils;
 
-import lk.tech.tgcontrollerqueue.dto.PrefixResult;
+import lk.tech.tgcontrollersocket.dto.PrefixResult;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;

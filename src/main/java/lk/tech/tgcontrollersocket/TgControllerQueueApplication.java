@@ -1,4 +1,4 @@
-package lk.tech.tgcontrollerqueue;
+package lk.tech.tgcontrollersocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

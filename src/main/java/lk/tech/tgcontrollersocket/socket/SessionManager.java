@@ -1,4 +1,4 @@
-package lk.tech.tgcontrollerqueue.socket;
+package lk.tech.tgcontrollersocket.socket;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;

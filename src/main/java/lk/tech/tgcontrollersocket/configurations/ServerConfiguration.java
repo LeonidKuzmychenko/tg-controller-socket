@@ -1,8 +1,8 @@
-package lk.tech.tgcontrollerqueue.configurations;
+package lk.tech.tgcontrollersocket.configurations;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lk.tech.tgcontrollerqueue.requests.HttpRequests;
+import lk.tech.tgcontrollersocket.requests.HttpRequests;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
