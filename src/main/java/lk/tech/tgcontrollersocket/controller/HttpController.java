@@ -1,6 +1,6 @@
 package lk.tech.tgcontrollersocket.controller;
 
-import lk.tech.tgcontrollersocket.senders.SocketMessageSender;
+import lk.tech.tgcontrollersocket.socket2.SocketMessageSender;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

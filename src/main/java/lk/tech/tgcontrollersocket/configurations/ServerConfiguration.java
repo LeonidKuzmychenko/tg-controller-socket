@@ -27,9 +27,17 @@ public class ServerConfiguration {
     @Bean
     public HttpRequests jsonPlaceholderClient(WebClient webClient) {
         HttpServiceProxyFactory factory = HttpServiceProxyFactory
-                .builderFor(WebClientAdapter.create(webClient))
+                .builder(WebClientAdapter.forClient(webClient))
                 .build();
 
         return factory.createClient(HttpRequests.class);
     }
+//    @Bean
+//    public HttpRequests jsonPlaceholderClient(WebClient webClient) {
+//        HttpServiceProxyFactory factory = HttpServiceProxyFactory
+//                .builderFor(WebClientAdapter.create(webClient))
+//                .build();
+//
+//        return factory.createClient(HttpRequests.class);
+//    }
 }

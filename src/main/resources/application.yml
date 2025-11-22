@@ -1,6 +1,9 @@
 spring:
   application:
     name: tg-controller-socket
+#  http:
+#    codecs:
+#      max-in-memory-size: 20MB
 
 server:
   port: 8484
@@ -8,3 +11,4 @@ server:
 logging:
   level:
     root: info
+
