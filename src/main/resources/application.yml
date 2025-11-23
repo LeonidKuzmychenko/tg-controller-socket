@@ -1,4 +1,6 @@
 spring:
+  webflux:
+
   application:
     name: tg-controller-socket
 #  http:

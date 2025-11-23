@@ -13,12 +13,11 @@ public class SocketMessageSender {
 
     private final SessionManager sessionManager;
 
-    public boolean sendToClient(String clientKey, String text) {
+    public void sendToClient(String clientKey, String text) {
         WebSocketSession session = sessionManager.getSession(clientKey);
 
         if (session == null || !session.isOpen()) {
             log.warn("SEND FAILED: client {} not connected", clientKey);
-            return false;
         }
 
         session.send(Mono.just(session.textMessage(text)))
@@ -26,7 +25,5 @@ public class SocketMessageSender {
                         null,
                         err -> log.error("Error while sending to {}: {}", clientKey, err.getMessage())
                 );
-
-        return true;
     }
 }
