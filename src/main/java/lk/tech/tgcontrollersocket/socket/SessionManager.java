@@ -1,4 +1,4 @@
-package lk.tech.tgcontrollersocket.socket2;
+package lk.tech.tgcontrollersocket.socket;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.socket.WebSocketSession;
@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class SessionManager {
+
     private final Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 
     public void addSession(String key, WebSocketSession session) {

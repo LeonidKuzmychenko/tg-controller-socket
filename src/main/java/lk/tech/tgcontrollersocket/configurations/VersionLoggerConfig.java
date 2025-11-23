@@ -20,7 +20,7 @@ public class VersionLoggerConfig {
 
     @Bean
     public ApplicationRunner versionLoggerRunner(ApplicationContext context) {
-        return args -> {
+        return _ -> {
             log.info("--- 📦 STARTING DEPENDENCY VERSION AUDIT ---");
             
             // Получаем все загруженные классы, которые могут быть библиотеками

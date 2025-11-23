@@ -1,6 +1,6 @@
 package lk.tech.tgcontrollersocket.configurations;
 
-import lk.tech.tgcontrollersocket.socket2.ReactiveSocketHandler;
+import lk.tech.tgcontrollersocket.socket.ReactiveSocketHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
