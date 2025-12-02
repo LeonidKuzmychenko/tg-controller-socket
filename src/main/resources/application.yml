@@ -1,11 +1,6 @@
 spring:
-  webflux:
-
   application:
     name: tg-controller-socket
-#  http:
-#    codecs:
-#      max-in-memory-size: 20MB
 
 server:
   port: 8484
